@@ -131,14 +131,14 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         lcd.clear()
-        lcd.text("Listening....")
+        lcd.text("Listening....",1)
         print("Listening....")
         r.adjust_for_ambient_noise(source)
         r.pause_threshold = 1
         audio = r.listen(source, phrase_time_limit=5)
     try:
             lcd.clear()
-            lcd.text("Recognising...")
+            lcd.text("Recognising...",1)
             print("Recognising...")
             query = r.recognize_google(audio)
             print(f"You said: {query}")
