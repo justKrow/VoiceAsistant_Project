@@ -38,6 +38,7 @@ class Weather():
     def weather(self):
         forecast = self.mgr.one_call(lat=self.lat, lon=self.long)
         return forecast
+        
 
     @property
     def forecast(self):
@@ -63,7 +64,7 @@ class Weather():
         message = "Here is the Weather: Today will be mostly " + detail_status \
                 + ", humidity of " + humidity + " percent" \
                 + " and a pressure of " + pressure + " millibars" \
-                + ". The temperature is " + temperature + "degrees celcius" \
+                + ". The temperature is " + temperature + "degrees " \
                 + ". Sunrise was at " + sunrise \
                 + " and sunset is at " + sunset \
                 + ". " + self.uv_index(uvi)
@@ -71,6 +72,98 @@ class Weather():
         # print(message)
         return message
 
-# Demo
-# myweather = Weather()
-# print(myweather.forecast)
+    @property
+    def temperature(self):
+        """ Returns the forecast at this location """
+
+        forecast = self.mgr.one_call(lat=self.lat, lon=self.long)
+        detail_status = forecast.forecast_daily[0].detailed_status
+        pressure = str(forecast.forecast_daily[0].pressure.get('press'))
+        humidity = str(forecast.forecast_daily[0].humidity)
+        temperature = str(forecast.forecast_daily[0].temperature('celsius').get('day'))
+        uvi = forecast.forecast_daily[0].uvi
+
+        # print('detailed status: ', detail_status)
+        # print("humidity ", humidity)
+        # print("pressure ", pressure)
+        # print("sunrise: ", sunrise)
+        # print("Sunset ", sunset)
+        # print("temperature", temperature)
+        # print("UVI ", uvi)
+        
+        message = "temp : " + temperature + " C" \
+
+        # print(message)
+        return message
+
+    @property
+    def humidity(self):
+        """ Returns the forecast at this location """
+
+        forecast = self.mgr.one_call(lat=self.lat, lon=self.long)
+        detail_status = forecast.forecast_daily[0].detailed_status
+        pressure = str(forecast.forecast_daily[0].pressure.get('press'))
+        humidity = str(forecast.forecast_daily[0].humidity)
+        temperature = str(forecast.forecast_daily[0].temperature('celsius').get('day'))
+        uvi = forecast.forecast_daily[0].uvi
+
+        # print('detailed status: ', detail_status)
+        # print("humidity ", humidity)
+        # print("pressure ", pressure)
+        # print("sunrise: ", sunrise)
+        # print("Sunset ", sunset)
+        # print("temperature", temperature)
+        # print("UVI ", uvi)
+        
+        message = "humidity : " + humidity + " %" \
+
+        # print(message)
+        return message
+
+    @property
+    def pressure(self):
+        """ Returns the forecast at this location """
+
+        forecast = self.mgr.one_call(lat=self.lat, lon=self.long)
+        detail_status = forecast.forecast_daily[0].detailed_status
+        pressure = str(forecast.forecast_daily[0].pressure.get('press'))
+        humidity = str(forecast.forecast_daily[0].humidity)
+        temperature = str(forecast.forecast_daily[0].temperature('celsius').get('day'))
+        uvi = forecast.forecast_daily[0].uvi
+
+        # print('detailed status: ', detail_status)
+        # print("humidity ", humidity)
+        # print("pressure ", pressure)
+        # print("sunrise: ", sunrise)
+        # print("Sunset ", sunset)
+        # print("temperature", temperature)
+        # print("UVI ", uvi)
+        
+        message = "pressure : " + pressure + " mbar" \
+
+        # print(message)
+        return message
+
+    @property
+    def status(self):
+        """ Returns the forecast at this location """
+
+        forecast = self.mgr.one_call(lat=self.lat, lon=self.long)
+        detail_status = forecast.forecast_daily[0].detailed_status
+        pressure = str(forecast.forecast_daily[0].pressure.get('press'))
+        humidity = str(forecast.forecast_daily[0].humidity)
+        temperature = str(forecast.forecast_daily[0].temperature('celsius').get('day'))
+        uvi = forecast.forecast_daily[0].uvi
+
+        # print('detailed status: ', detail_status)
+        # print("humidity ", humidity)
+        # print("pressure ", pressure)
+        # print("sunrise: ", sunrise)
+        # print("Sunset ", sunset)
+        # print("temperature", temperature)
+        # print("UVI ", uvi)
+        
+        message = "status : " + pressure 
+
+        # print(message)
+        return message
