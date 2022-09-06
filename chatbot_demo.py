@@ -129,7 +129,6 @@ def weather():
     forecast = myweather.forecast
     display.lcd_clear()
     speak(forecast)
-    long_string(display,forecast,1)
     print(forecast)
 
 def weatherLCD():
@@ -243,6 +242,7 @@ if __name__ == "__main__":
             elif 'what is the weather like' in query or 'give me the forecast' in query or 'what is the weather+' in query:
                 try:
                     weather()
+                    weatherLCD()
                 except:
                     print("No results")
                     display.lcd_clear()
