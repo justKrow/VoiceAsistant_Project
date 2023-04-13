@@ -43,7 +43,7 @@ Third ==> run training.py to train the chatbot_demo
 
 Fourth  ==> run chatbot_demo
 
-This work is not originally mine and it is a combination of codes from references:
+This work is not mine exclusively and it is a combination and inspiration of codes from references:
 
             https://youtu.be/1lwddP0KUEg
             
